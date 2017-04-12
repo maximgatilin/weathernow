@@ -1,24 +1,33 @@
-.App {
-  text-align: center;
+:root {
+  /*main colors*/
+  --back-color: #7f8c8d;
+  --text-color: #fff;
+  /*main colors*/
+  
+  /*weather colors*/
+  --sunny-background: linear-gradient(to top, #ff8008, #ffc837);
+  --clouds-background: linear-gradient(to top, #2f80ed, #56ccf2);
+  --clouds-dark-background: linear-gradient(to top, #021b79, #0575e6);
+  --thunderstorm-background: linear-gradient(to top, #232526, #414345);
+  --rain-background: linear-gradient(to top, #2c3e50, #bdc3c7);
+  /*weather colors*/
+
+  --offset: 15px;
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  color: var(--text-color);
+  background: var(--rain-background);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }

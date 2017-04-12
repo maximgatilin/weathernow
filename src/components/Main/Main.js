@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-// import styles from './Main.css';
 import axios from 'axios';
+import styles from './Main.css';
 import weatherCodes from './../../data/weatherCodes';
-import WeatherIcon from './../icons/WeatherIcon';
+import WeatherIcon from './../WeatherIcon/WeatherIcon';
+import Temperature from './../Temperature/Temperature';
 
 const locationReqUrl = 'http://freegeoip.net/json/';
 const weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather?';
@@ -20,6 +21,21 @@ class Main extends Component {
 			iconCode: ""
 		}
 	}
+
+	render() {
+    return (
+      <div className={styles.container}>
+        <h2 className={styles.city}>{this.state.city}</h2>
+        <div className={styles.split}>
+        	<WeatherIcon code={this.state.iconCode} class={styles.icon}/>
+        	<span className={styles.date}>Today</span>
+        </div>
+        <Temperature value={this.state.temp}/>
+        <div className={styles.description}>{this.state.description}</div>
+        
+      </div>
+    )
+  }
 
 	componentDidMount() {
 		this.getUserLocation()
@@ -49,18 +65,6 @@ class Main extends Component {
 				description: description,
 				iconCode: weather.icon
 			});
-  }
-
-  render() {
-    return (
-      <div>
-        <h2>{this.state.city}</h2>
-        <p>Today</p>
-        <p>{this.state.temp}&#x2103;</p>
-        <p>{this.state.description}</p>
-        <WeatherIcon code={this.state.iconCode}/>
-      </div>
-    )
   }
 }
 

@@ -1,0 +1,26 @@
+.container {
+	text-align: center;
+}
+
+.city {
+	font-weight: 400;
+	font-size: 50px;
+}
+
+.split {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: var(--offset);
+}
+
+.date {
+	display: inline-block;
+	border-left: 1px solid var(--text-color);
+	font-size: 30px;
+	padding-left: var(--offset);
+}
+
+.description {
+	font-size: 20px;
+}

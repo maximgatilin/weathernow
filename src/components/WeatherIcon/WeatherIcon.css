@@ -1,0 +1,12 @@
+.icon {
+	display: block;
+	background: var(--text-color);
+	padding: 10px;
+	margin-right: var(--offset);
+	border-radius: 10px;
+}
+
+.icon svg {
+	display: block;
+	width: 80px;
+}

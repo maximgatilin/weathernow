@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import SunIcon from './SunIcon';
-import SunCloudsIcon from './SunCloudsIcon';
-import MoonIcon from './MoonIcon';
-import MoonCloudsIcon from './MoonCloudsIcon';
-import CloudsBrokenIcon from './CloudsBrokenIcon';
-import CloudsIcon from './CloudsIcon';
-import RainIcon from './RainIcon';
-import RainShowerIcon from './RainShowerIcon';
-import SnowIcon from './SnowIcon';
-import ThunderIcon from './ThunderIcon';
+import SunIcon from './../icons/SunIcon';
+import SunCloudsIcon from './../icons/SunCloudsIcon';
+import MoonIcon from './../icons/MoonIcon';
+import MoonCloudsIcon from './../icons/MoonCloudsIcon';
+import CloudsBrokenIcon from './../icons/CloudsBrokenIcon';
+import CloudsIcon from './../icons/CloudsIcon';
+import RainIcon from './../icons/RainIcon';
+import RainShowerIcon from './../icons/RainShowerIcon';
+import SnowIcon from './../icons/SnowIcon';
+import ThunderIcon from './../icons/ThunderIcon';
+
+import styles from './WeatherIcon.css';
 
 class WeatherIcon extends Component {
   render() {
     return (
-    	<div>{this.getIcon(this.props.code)}</div>
+    	<div className={styles.icon}>{this.getIcon(this.props.code)}</div>
     )
   }
 
