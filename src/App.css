@@ -6,10 +6,18 @@
   
   /*weather colors*/
   --sunny-background: linear-gradient(to top, #ff8008, #ffc837);
-  --clouds-background: linear-gradient(to top, #2f80ed, #56ccf2);
+  --moon-background: linear-gradient(to top, #141e30, #243b55);
+  --clouds-background: linear-gradient(to top, #757f9a, #d7dde8);
+  --night-clouds-background: linear-gradient(to top, #37393d, #101b30);
+  --light-clouds-background: linear-gradient(to top, #4ca1af, #c4e0e5);
+  --night-light-clouds-background: linear-gradient(to top, #222, #243b55);
+  --snow-background: linear-gradient(to top, #085078, #85d8ce);
+
   --clouds-dark-background: linear-gradient(to top, #021b79, #0575e6);
-  --thunderstorm-background: linear-gradient(to top, #232526, #414345);
+  --thunderstorm-background: linear-gradient(to top, #232526, #606060);
   --rain-background: linear-gradient(to top, #2c3e50, #bdc3c7);
+  --start-background: #fff;
+  --weather-background: var(--start-background);
   /*weather colors*/
 
   --offset: 15px;
@@ -23,7 +31,8 @@ body {
   min-height: 100vh;
   font-family: sans-serif;
   color: var(--text-color);
-  background: var(--rain-background);
+  background: var(--weather-background);
+  transition: background 3s ease;
 }
 
 * {

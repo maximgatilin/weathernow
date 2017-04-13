@@ -9,6 +9,7 @@ import RainIcon from './../icons/RainIcon';
 import RainShowerIcon from './../icons/RainShowerIcon';
 import SnowIcon from './../icons/SnowIcon';
 import ThunderIcon from './../icons/ThunderIcon';
+import MistIcon from './../icons/MistIcon';
 
 import styles from './WeatherIcon.css';
 
@@ -36,7 +37,9 @@ class WeatherIcon extends Component {
       "11d": <ThunderIcon />,
       "11n": <ThunderIcon />,
       "13d": <SnowIcon />,
-      "13n": <SnowIcon />
+      "13n": <SnowIcon />,
+      "50d": <MistIcon />,
+      "50n": <MistIcon />
   	};
   	return icons[code];
   }
