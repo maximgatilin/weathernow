@@ -5,8 +5,8 @@ import weatherCodes from './../../data/weatherCodes';
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
 
-const locationReqUrl = 'http://freegeoip.net/json/';
-const weatherApiUrl = 'http://api.openweathermap.org/data/2.5/weather?';
+const locationReqUrl = 'https://freegeoip.net/json/';
+const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?';
 const weatherApiId = '78fde333ab6d0dfbcb3368643680ae9a';
 const weatherUnits = 'metric';
 
