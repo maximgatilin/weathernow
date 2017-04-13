@@ -2,7 +2,9 @@
   "name": "weathernow",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://maximgatilin.github.io/weathernow",
   "dependencies": {
+    "gh-pages": "^0.12.0",
     "react": "^15.5.3",
     "react-dom": "^15.5.3"
   },
@@ -50,7 +52,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "jest": {
     "collectCoverageFrom": [
