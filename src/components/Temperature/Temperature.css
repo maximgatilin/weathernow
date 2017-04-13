@@ -1,17 +1,18 @@
 .value {
-	position: relative;
-	display: inline-block;
-	font-size: 90px;
-	margin-top: var(--offset);
+  position: relative;
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 120px;
+  font-family: sans-serif;
 }
 
 .value::after {
-	content:"";
-	position: absolute;
-	width: 6px;
-	height: 6px;
-  top: 6px;
-  right: -14px;
-	border: 3px solid currentColor;
-	border-radius: 50%;
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 22px;
+  right: -16px;
+  border: 3px solid currentColor;
+  border-radius: 50%;
 }

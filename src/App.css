@@ -21,15 +21,16 @@
   /*weather colors*/
 
   --offset: 15px;
-
 }
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
 
 body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
   min-height: 100vh;
-  font-family: sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: var(--text-color);
   background: var(--weather-background);
   transition: background 3s ease;
