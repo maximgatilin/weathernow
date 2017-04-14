@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styles from './Main.css';
-import weatherCodes from './../../data/weatherCodes';
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
+import fetchJsonp from 'fetch-jsonp';
 
 const locationReqUrl = 'https://freegeoip.net/json/';
 const weatherApiUrl = 'https://api.darksky.net/forecast';
@@ -17,7 +17,7 @@ class Main extends Component {
 			city: "",
 			temp: "",
 			description: "",
-			iconCode: ""
+			weatherKey: ""
 		}
 	}
 
@@ -26,7 +26,7 @@ class Main extends Component {
       <div className={styles.container}>
         <h2 className={styles.city}>{this.state.city}</h2>
         <div className={styles.split}>
-        	<WeatherIcon code={this.state.iconCode} class={styles.icon}/>
+        	<WeatherIcon code={this.state.weatherKey} class={styles.icon}/>
         	<span className={styles.date}>Today</span>
         </div>
         <Temperature value={this.state.temp}/>
@@ -38,7 +38,9 @@ class Main extends Component {
 
 	componentDidMount() {
 		this.getUserLocation()
+    .then( location => this.setCity(location) )
 		.then( location => this.getWeather(location.data) )
+    .then( res => res.json() )
 		.then( weatherData => this.showWeather(weatherData) )
 		.then( weatherData => this.updateBackground(weatherData) );
   }
@@ -47,27 +49,29 @@ class Main extends Component {
   	return axios.get(locationReqUrl);
   }
 
+  setCity(location) {
+    this.setState({city: location.data.city});
+
+    return location;
+  }
+
   getWeather(location) {
 			const latitude = location.latitude;
   		const longitude = location.longitude;
 
-  		return axios.get(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}`);
+      return fetchJsonp(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}?units=si&exclude=minutely,hourly,daily,alerts,flags`);
   }
 
   showWeather(weatherData) {
-    debugger;
-			const weather = weatherData.data.weather[0];
-			const descriptionCode = weather.id;
-			const description = weatherCodes[descriptionCode];
+    const currentWeather = weatherData.currently;
 
-			this.setState({
-				city: weatherData.data.name,
-				temp: weatherData.data.main.temp.toFixed(),
-				description: description,
-				iconCode: weather.icon
-			});
+		this.setState({
+			temp: currentWeather.temperature.toFixed(),
+			description: currentWeather.summary,
+			weatherKey: currentWeather.icon
+		});
 
-			return weather;
+		return currentWeather;
   }
 
   updateBackground(weather) {
@@ -83,30 +87,19 @@ class Main extends Component {
   	const clouds = documentStyles.getPropertyValue('--clouds-background');
   	const nightClouds = documentStyles.getPropertyValue('--night-clouds-background');
   	const lightClouds = documentStyles.getPropertyValue('--light-clouds-background');
-  	const nightLightClouds = documentStyles.getPropertyValue('--night-light-clouds-background');
   	const snow = documentStyles.getPropertyValue('--snow-background');
   	const rain = documentStyles.getPropertyValue('--rain-background');
-  	const thunderstorm = documentStyles.getPropertyValue('--thunderstorm-background');
 
   	const backgrounds = {
-  		"01d": sun,
-  		"01n": moon,
-      "02d": lightClouds,
-      "02n": nightLightClouds,
-      "03d": clouds,
-      "03n": nightClouds,
-      "04d": rain,
-      "04n": rain,
-      "09d": rain,
-      "09n": rain,
-      "10d": rain,
-      "10n": rain,
-      "11d": thunderstorm,
-      "11n": thunderstorm,
-      "13d": snow,
-      "13n": snow,
-      "50d": nightClouds,
-      "50n": nightClouds
+  		"clear-day": sun,
+  		"clear-night": moon,
+      "cloudy": clouds,
+      "partly-cloudy-day": clouds,
+      "partly-cloudy-night": nightClouds,
+      "rain": rain,
+      "snow": snow,
+      "fog": nightClouds,
+      "wind": lightClouds
   	};
 
   	return backgrounds[key];

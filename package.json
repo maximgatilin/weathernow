@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://maximgatilin.github.io/weathernow",
   "dependencies": {
+    "fetch-jsonp": "^1.0.6",
     "gh-pages": "^0.12.0",
     "react": "^15.5.3",
     "react-dom": "^15.5.3"

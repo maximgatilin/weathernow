@@ -22,24 +22,15 @@ class WeatherIcon extends Component {
 
   getIcon(code) {
   	const icons = {
-  		"01d": <SunIcon />,
-  		"01n": <MoonIcon />,
-      "02d": <SunCloudsIcon />,
-      "02n": <MoonCloudsIcon />,
-      "03d": <CloudsIcon />,
-      "03n": <CloudsIcon />,
-      "04d": <CloudsBrokenIcon />,
-      "04n": <CloudsBrokenIcon />,
-      "09d": <RainShowerIcon />,
-      "09n": <RainShowerIcon />,
-      "10d": <RainIcon />,
-      "10n": <RainIcon />,
-      "11d": <ThunderIcon />,
-      "11n": <ThunderIcon />,
-      "13d": <SnowIcon />,
-      "13n": <SnowIcon />,
-      "50d": <MistIcon />,
-      "50n": <MistIcon />
+      "clear-day": <SunIcon />,
+      "clear-night": <MoonIcon />,
+      "cloudy": <CloudsIcon />,
+      "partly-cloudy-day": <SunCloudsIcon />,
+      "partly-cloudy-night": <MoonCloudsIcon />,
+      "rain": <RainIcon />,
+      "snow": <SnowIcon />,
+      "fog": <MistIcon />,
+      "wind": <MistIcon />,
   	};
   	return icons[code];
   }
