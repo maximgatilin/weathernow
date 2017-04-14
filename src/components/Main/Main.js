@@ -6,9 +6,8 @@ import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
 
 const locationReqUrl = 'https://freegeoip.net/json/';
-const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?';
-const weatherApiId = '78fde333ab6d0dfbcb3368643680ae9a';
-const weatherUnits = 'metric';
+const weatherApiUrl = 'https://api.darksky.net/forecast';
+const weatherApiId = 'f482f8eeaaf27e35c0bc1b223999502f';
 
 class Main extends Component {
 	constructor(props) {
@@ -52,10 +51,11 @@ class Main extends Component {
 			const latitude = location.latitude;
   		const longitude = location.longitude;
 
-  		return axios.get(`${weatherApiUrl}lat=${latitude}&lon=${longitude}&appid=${weatherApiId}&units=${weatherUnits}`);
+  		return axios.get(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}`);
   }
 
   showWeather(weatherData) {
+    debugger;
 			const weather = weatherData.data.weather[0];
 			const descriptionCode = weather.id;
 			const description = weatherCodes[descriptionCode];
