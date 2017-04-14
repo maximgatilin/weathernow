@@ -75,11 +75,11 @@ class Main extends Component {
   }
 
   updateBackground(weather) {
-		const background = this.getBackgroundByKey(weather.icon);
+		const background = this.getBackground(weather);
 		document.documentElement.style.setProperty('--weather-background', background);
   }
 
-  getBackgroundByKey(key) {
+  getBackground(weather) {
   	const documentStyles = window.getComputedStyle(document.documentElement);
 
   	const sun = documentStyles.getPropertyValue('--sunny-background');
@@ -89,9 +89,10 @@ class Main extends Component {
   	const lightClouds = documentStyles.getPropertyValue('--light-clouds-background');
   	const snow = documentStyles.getPropertyValue('--snow-background');
   	const rain = documentStyles.getPropertyValue('--rain-background');
+    const clear = documentStyles.getPropertyValue('--clear');
 
   	const backgrounds = {
-  		"clear-day": sun,
+  		"clear-day": weather.temperature > 15 ? sun : clear,
   		"clear-night": moon,
       "cloudy": clouds,
       "partly-cloudy-day": clouds,
@@ -102,7 +103,7 @@ class Main extends Component {
       "wind": lightClouds
   	};
 
-  	return backgrounds[key];
+  	return backgrounds[weather.icon];
   }
 }
 

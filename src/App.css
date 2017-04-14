@@ -12,14 +12,14 @@
   --light-clouds-background: linear-gradient(to top, #4ca1af, #c4e0e5);
   --night-light-clouds-background: linear-gradient(to top, #222, #243b55);
   --snow-background: linear-gradient(to top, #085078, #85d8ce);
-
+  --clear: linear-gradient(to top, #2f80ed, #56ccf2);
   --clouds-dark-background: linear-gradient(to top, #021b79, #0575e6);
   --thunderstorm-background: linear-gradient(to top, #232526, #606060);
   --rain-background: linear-gradient(to top, #2c3e50, #bdc3c7);
   --start-background: #fff;
-  --weather-background: var(--start-background);
   /*weather colors*/
 
+  --weather-background: var(--start-background);
   --offset: 15px;
 }
 
