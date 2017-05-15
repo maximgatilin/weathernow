@@ -31,26 +31,27 @@ class Main extends Component {
         </div>
         <Temperature value={this.state.temp}/>
         <div className={styles.description}>{this.state.description}</div>
-        
+
       </div>
     )
   }
 
 	componentDidMount() {
 		this.getUserLocation()
+    .then( res => res.json() )
     .then( location => this.setCity(location) )
-		.then( location => this.getWeather(location.data) )
+		.then( location => this.getWeather(location) )
     .then( res => res.json() )
 		.then( weatherData => this.showWeather(weatherData) )
 		.then( weatherData => this.updateBackground(weatherData) );
   }
 
   getUserLocation() {
-  	return axios.get(locationReqUrl);
+  	return fetch(locationReqUrl);
   }
 
   setCity(location) {
-    this.setState({city: location.data.city});
+    this.setState({city: location.city});
 
     return location;
   }
