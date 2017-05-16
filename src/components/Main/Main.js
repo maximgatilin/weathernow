@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import styles from './Main.css';
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
@@ -47,7 +46,11 @@ class Main extends Component {
   }
 
   getUserLocation() {
-  	return fetch(locationReqUrl);
+  	return fetch(locationReqUrl, {
+      headers: {
+        'Accept-Language':'en'
+      }
+    });
   }
 
   setCity(location) {
@@ -78,6 +81,10 @@ class Main extends Component {
   updateBackground(weather) {
 		const background = this.getBackground(weather);
 		document.documentElement.style.setProperty('--weather-background', background);
+
+    // IOS Safari not rerender backgroud for body
+    // Rewrite background directly to body's custom property
+    document.body.style.setProperty('--weather-background', background);
   }
 
   getBackground(weather) {

@@ -29,7 +29,6 @@ body {
   font-family: 'Raleway', sans-serif;
   color: var(--text-color);
   background: var(--weather-background);
-  transition: background 3s ease;
 }
 
 .container {
