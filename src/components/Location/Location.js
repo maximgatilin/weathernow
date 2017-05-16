@@ -19,13 +19,16 @@ class Location extends Component {
 
      if (editMode) {
       return (
-      	<Autocomplete className={styles.input} autoFocus placeholder="Start typing your location"
+      	<div className={styles.block}>
+      		<Autocomplete className={styles.input} autoFocus placeholder="Start typing your location"
       	 onBlur={this.handleInputBlur.bind(this)} onPlaceSelected={this.props.locationSelect} types={['(cities)']} />
+      	</div>
       	);
     } else {
     	return (
-    		<div><ChangeLocation clickHandler={this.handleLocationChange.bind(this)} />
+    		<div className={styles.block}>
      			<h2 className={styles.city}>{this.props.city}</h2>
+     			<ChangeLocation clickHandler={this.handleLocationChange.bind(this)} />
      		</div>
      );
      
