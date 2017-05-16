@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+
 import styles from './Main.css';
+
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
 import fetchJsonp from 'fetch-jsonp';
+import Location from './../Location/Location';
 
 const locationReqUrl = 'https://freegeoip.net/json/';
 const weatherApiUrl = 'https://api.darksky.net/forecast';
@@ -17,22 +20,36 @@ class Main extends Component {
 			temp: "",
 			description: "",
 			weatherKey: ""
-		}
+		};
 	}
 
 	render() {
     return (
       <div className={styles.container}>
-        <h2 className={styles.city}>{this.state.city}</h2>
+        <Location city={this.state.city}
+          locationSelect={this.handleLocationSelect.bind(this)}/>
         <div className={styles.split}>
         	<WeatherIcon code={this.state.weatherKey} class={styles.icon}/>
         	<span className={styles.date}>Today</span>
         </div>
         <Temperature value={this.state.temp}/>
         <div className={styles.description}>{this.state.description}</div>
-
       </div>
     )
+  }
+
+  handleLocationSelect(place) {
+    const location = {
+     city: place.vicinity ,
+     latitude: place.geometry.location.lat(),
+     longitude: place.geometry.location.lng()
+    };
+
+    this.setCity(location);
+    this.getWeather(location)
+    .then( res => res.json() )
+    .then( weatherData => this.showWeather(weatherData) )
+    .then( weatherData => this.updateBackground(weatherData) );
   }
 
 	componentDidMount() {

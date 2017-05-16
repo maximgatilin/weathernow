@@ -2,11 +2,6 @@
 	text-align: center;
 }
 
-.city {
-	font-weight: 400;
-	font-size: 50px;
-}
-
 .split {
 	display: flex;
 	align-items: center;
@@ -26,3 +21,4 @@
 .description {
 	font-size: 20px;
 }
+

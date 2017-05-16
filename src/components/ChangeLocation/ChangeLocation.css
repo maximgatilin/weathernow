@@ -1,0 +1,20 @@
+.container {
+	width: 100%;
+	text-align: right;
+}
+
+.button {
+	display: inline-block;
+	border: none;
+	background: transparent;
+	color: #fff;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+.button:active, .button:focus {
+	outline: none;
+	border: none;
+}
