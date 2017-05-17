@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 import styles from './Main.css';
 
+import fetchJsonp from 'fetch-jsonp';
+
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
-import fetchJsonp from 'fetch-jsonp';
 import Location from './../Location/Location';
 
 const locationReqUrl = 'https://freegeoip.net/json/';
@@ -29,7 +30,7 @@ class Main extends Component {
         <Location city={this.state.city}
           locationSelect={this.handleLocationSelect.bind(this)}/>
         <div className={styles.split}>
-        	<WeatherIcon code={this.state.weatherKey} class={styles.icon}/>
+         <WeatherIcon code={this.state.weatherKey} class={styles.icon}/>
         	<span className={styles.date}>Today</span>
         </div>
         <Temperature value={this.state.temp}/>
@@ -86,8 +87,9 @@ class Main extends Component {
   showWeather(weatherData) {
     const currentWeather = weatherData.currently;
 
+    this.setTemp(Number(currentWeather.temperature.toFixed()));
+
 		this.setState({
-			temp: currentWeather.temperature.toFixed(),
 			description: currentWeather.summary,
 			weatherKey: currentWeather.icon
 		});
@@ -129,6 +131,27 @@ class Main extends Component {
   	};
 
   	return backgrounds[weather.icon];
+  }
+
+  setTemp(temp) {
+    let oldTemp = this.state.temp;
+    if (oldTemp === '') {
+      this.setState({
+        temp
+      });
+      return;
+    }
+
+    let tempInterval = setInterval(() => {
+      this.setState({
+        temp: oldTemp > temp ? --oldTemp : ++oldTemp
+      });
+
+      if (oldTemp === temp) {
+        clearInterval(tempInterval);
+      }
+    }, 35);
+    
   }
 }
 

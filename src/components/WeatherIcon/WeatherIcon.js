@@ -14,8 +14,17 @@ import styles from './WeatherIcon.css';
 class WeatherIcon extends Component {
   render() {
     return (
-    	<div className={styles.icon}>{this.getIcon(this.props.code)}</div>
+          <div className={styles.icon}>{this.getIcon(this.props.code)}</div>
+    	
     )
+  }
+
+  componentWillUpdate() {
+    console.log('componentWillUpdate');
+  }
+
+  componentDidUpdate() {
+    console.log('componentDidUpdate');
   }
 
   getIcon(code) {

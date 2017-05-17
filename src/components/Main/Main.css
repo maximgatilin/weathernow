@@ -7,6 +7,7 @@
 	align-items: center;
 	justify-content: center;
 	margin-top: calc(var(--offset)*2);
+	min-height: 100px;
 }
 
 .date {
@@ -21,4 +22,3 @@
 .description {
 	font-size: 20px;
 }
-

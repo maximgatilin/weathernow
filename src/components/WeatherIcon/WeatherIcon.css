@@ -1,9 +1,11 @@
 .icon {
-	display: block;
+	display: flex;
 	background: var(--text-color);
 	padding: 10px;
 	margin-right: var(--offset);
 	border-radius: 10px;
+	height: 100px;
+	width: 100px;
 }
 
 .icon svg {
