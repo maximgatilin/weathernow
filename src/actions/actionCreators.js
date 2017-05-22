@@ -1,8 +1,8 @@
 import fetchJsonp from 'fetch-jsonp';
 
-const locationReqUrl = 'https://freegeoip.net/json/';
-const weatherApiUrl = 'https://api.darksky.net/forecast';
-const weatherApiId = 'f482f8eeaaf27e35c0bc1b223999502f';
+import * as config from './../config.js';
+
+const { locationReqUrl, weatherApiUrl, weatherApiId } = config;
 
 // Location
 export function requestLocation() {
