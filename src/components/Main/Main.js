@@ -30,27 +30,6 @@ class Main extends Component {
 	componentDidMount() {
     this.props.detectLocation();
   }
-
-  setTemp(temp) {
-    let oldTemp = this.state.temp;
-    if (oldTemp === '') {
-      this.setState({
-        temp
-      });
-      return;
-    }
-
-    let tempInterval = setInterval(() => {
-      this.setState({
-        temp: oldTemp > temp ? --oldTemp : ++oldTemp
-      });
-
-      if (oldTemp === temp) {
-        clearInterval(tempInterval);
-      }
-    }, 35);
-    
-  }
 }
 
 Main.propTypes = {
