@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './ChangeLocation.css';
 import LocationIcon from './../icons/LocationIcon';
@@ -13,5 +14,9 @@ class ChangeLocation extends Component {
     )
   }
 }
+
+ChangeLocation.propTypes = {
+	clickHandler: PropTypes.func
+};
 
 export default ChangeLocation;

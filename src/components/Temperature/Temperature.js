@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Temperature.css';
 
@@ -9,5 +10,9 @@ class Temperature extends Component {
     )
   }
 }
+
+Temperature.propTypes = {
+	value: PropTypes.number.isRequired
+};
 
 export default Temperature;

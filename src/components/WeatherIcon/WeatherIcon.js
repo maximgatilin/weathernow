@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SunIcon from './../icons/SunIcon';
 import SunCloudsIcon from './../icons/SunCloudsIcon';
 import MoonIcon from './../icons/MoonIcon';
@@ -8,6 +10,7 @@ import RainIcon from './../icons/RainIcon';
 import SnowIcon from './../icons/SnowIcon';
 import MistIcon from './../icons/MistIcon';
 import WindIcon from './../icons/WindIcon';
+
 
 import styles from './WeatherIcon.css';
 
@@ -33,5 +36,9 @@ class WeatherIcon extends Component {
   	return icons[code];
   }
 }
+
+WeatherIcon.propTypes = {
+  code: PropTypes.string.isRequired
+};
 
 export default WeatherIcon;

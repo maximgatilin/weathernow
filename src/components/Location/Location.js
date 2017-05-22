@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import ChangeLocation from './../ChangeLocation/ChangeLocation';
 import Autocomplete from 'react-google-autocomplete';
@@ -30,5 +31,13 @@ class Location extends Component {
     }
   }
 }
+
+Location.propTypes = {
+  city: PropTypes.string.isRequired,
+  editMode: PropTypes.bool,
+  onInputBlur: PropTypes.func,
+  onLocationSelect: PropTypes.func,
+  onChangeLocationClick: PropTypes.func
+};
 
 export default Location;

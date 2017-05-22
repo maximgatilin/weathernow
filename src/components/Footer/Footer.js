@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import styles from './Footer.css';
 import darkSkyImg from './../../images/darksky.png';
 

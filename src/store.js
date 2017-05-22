@@ -6,14 +6,14 @@ const loggerMiddleware = createLogger();
 
 const initialState = {
   location: {
-    city: null,
+    city: '',
     latitude: null,
     longitude: null
   },
-  temperature: null,
+  temperature: 0,
   editMode: false,
   weatherDescription: '',
-  weatherIcon: null
+  weatherIcon: ''
 };
 
 const store = createStore(

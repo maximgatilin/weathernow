@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Main.css';
 
@@ -26,22 +27,8 @@ class Main extends Component {
     )
   }
 
-  handleLocationSelect(place) {
-    const location = {
-     city: place.vicinity ,
-     latitude: place.geometry.location.lat(),
-     longitude: place.geometry.location.lng()
-    };
-
-    this.setCity(location);
-    this.getWeather(location)
-    .then( res => res.json() )
-    .then( weatherData => this.showWeather(weatherData) )
-    .then( weatherData => this.updateBackground(weatherData) );
-  }
-
 	componentDidMount() {
-    this.props.detectLocation.call(this);
+    this.props.detectLocation();
   }
 
   setTemp(temp) {
@@ -65,5 +52,16 @@ class Main extends Component {
     
   }
 }
+
+Main.propTypes = {
+  pageBackground: PropTypes.string,
+  location: PropTypes.object,
+  editMode: PropTypes.bool,
+  changeLocation: PropTypes.func,
+  switchEditMode: PropTypes.func,
+  weatherIcon: PropTypes.string,
+  temperature: PropTypes.number,
+  weatherDescription: PropTypes.string
+};
 
 export default Main;
