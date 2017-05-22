@@ -15,16 +15,7 @@ class WeatherIcon extends Component {
   render() {
     return (
           <div className={styles.icon}>{this.getIcon(this.props.code)}</div>
-    	
     )
-  }
-
-  componentWillUpdate() {
-    console.log('componentWillUpdate');
-  }
-
-  componentDidUpdate() {
-    console.log('componentDidUpdate');
   }
 
   getIcon(code) {
