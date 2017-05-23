@@ -8,12 +8,14 @@ import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
 import Location from './../Location/Location';
 import Loader from './../Loader/Loader';
+import Error from './../Error/Error';
 
 class Main extends Component {
 	render() {
     return (
       <div className={styles.container}>
-        <Loader loading={this.props.loading}/>
+        { this.props.loading && <Loader /> }
+        { this.props.loadingError && <Error>Sorry, an error occurred. Try to reload page</Error> }
         <PageBackground background={this.props.pageBackground} />
         <Location city={this.props.location.city}
           editMode={this.props.editMode}

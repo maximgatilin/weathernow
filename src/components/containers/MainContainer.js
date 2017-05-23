@@ -4,7 +4,7 @@ import * as actionCreators from './../../actions/actionCreators';
 import Main from './../Main/Main';
 
 const mapStateToProps = (state) => {
-	const { location, temperature, weatherDescription, weatherIcon, pageBackground, editMode, loading } = state;
+	const { location, temperature, weatherDescription, weatherIcon, pageBackground, editMode, loading, loadingError } = state;
 	return {
 		location,
 		temperature,
@@ -12,7 +12,8 @@ const mapStateToProps = (state) => {
 		weatherIcon,
 		pageBackground,
 		editMode,
-		loading
+		loading,
+		loadingError
 	}
 };
 

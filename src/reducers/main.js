@@ -18,12 +18,18 @@ const mainReducer = (state , action) => {
         weatherDescription: action.description,
         weatherIcon: action.icon,
         pageBackground: action.background,
-        loading: false
+        loading: false,
+        loadingError: false
       })
     case 'SWITCH_EDIT_MODE':
       return Object.assign({}, state, {
         editMode: action.value
       })
+    case 'LOADING_FAILED':
+      return Object.assign({}, state, {
+        loading: false,
+        loadingError: true
+      })  
     default:
       return state;  
   }

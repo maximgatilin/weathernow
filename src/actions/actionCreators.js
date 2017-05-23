@@ -29,7 +29,7 @@ export function detectLocation() {
         'Accept-Language':'en'
       }
     })
-    .then(response => response.json())
+    .then(response => response.json(), error => {dispatch(loadingFailed())})
     .then(location => {
     	dispatch(receiveLocation(location))
     	dispatch(getWeather())
@@ -74,7 +74,7 @@ export function getWeather() {
 		const { latitude, longitude } = getState().location;
 
     return fetchJsonp(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}?units=si&exclude=minutely,hourly,daily,alerts,flags`)
-    .then(response => response.json())
+    .then(response => response.json(), error => {dispatch(loadingFailed())})
     .then(weather => dispatch(receiveWeather(weather)));
 	};
 }
@@ -118,6 +118,12 @@ export function onCityPick(city) {
 		type:'PICK_CITY',
 		city
 	};
+}
+
+export function loadingFailed() {
+	return {
+		type: 'LOADING_FAILED'
+	}
 }
 // Other###
 

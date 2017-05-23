@@ -15,7 +15,8 @@ const initialState = {
   weatherDescription: '',
   weatherIcon: '',
   pageBackground: 'linear-gradient(to top, #3498db, #3498db)',
-  loading: false
+  loading: false,
+  loadingError: false
 };
 
 const store = createStore(
