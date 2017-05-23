@@ -4,14 +4,15 @@ import * as actionCreators from './../../actions/actionCreators';
 import Main from './../Main/Main';
 
 const mapStateToProps = (state) => {
+	const { location, temperature, weatherDescription, weatherIcon, pageBackground, editMode, loading } = state;
 	return {
-		location: state.location,
-		temperature: state.temperature,
-		weatherDescription: state.weatherDescription,
-		weatherIcon: state.weatherIcon,
-		pageBackground: state.pageBackground,
-		editMode: state.editMode,
-		loading: state.loading
+		location,
+		temperature,
+		weatherDescription,
+		weatherIcon,
+		pageBackground,
+		editMode,
+		loading
 	}
 };
 
