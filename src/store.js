@@ -13,7 +13,8 @@ const initialState = {
   temperature: 0,
   editMode: false,
   weatherDescription: '',
-  weatherIcon: ''
+  weatherIcon: '',
+  pageBackground: 'linear-gradient(to top, #fff, #fff)'
 };
 
 const store = createStore(

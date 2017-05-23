@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import styles from './Main.css';
 
+import PageBackground from './../PageBackground/PageBackground';
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
 import Location from './../Location/Location';
@@ -11,7 +12,7 @@ class Main extends Component {
 	render() {
     return (
       <div className={styles.container}>
-      <span style={{'background': this.props.pageBackground }} className={styles.pageBackground}></span>
+      <PageBackground background={this.props.pageBackground} />
         <Location city={this.props.location.city}
           editMode={this.props.editMode}
           onLocationSelect={this.props.changeLocation}
