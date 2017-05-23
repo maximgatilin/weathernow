@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 		weatherDescription: state.weatherDescription,
 		weatherIcon: state.weatherIcon,
 		pageBackground: state.pageBackground,
-		editMode: state.editMode
+		editMode: state.editMode,
+		loading: state.loading
 	}
 };
 

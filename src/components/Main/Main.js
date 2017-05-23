@@ -7,12 +7,14 @@ import PageBackground from './../PageBackground/PageBackground';
 import WeatherIcon from './../WeatherIcon/WeatherIcon';
 import Temperature from './../Temperature/Temperature';
 import Location from './../Location/Location';
+import Loader from './../Loader/Loader';
 
 class Main extends Component {
 	render() {
     return (
       <div className={styles.container}>
-      <PageBackground background={this.props.pageBackground} />
+        <Loader loading={this.props.loading}/>
+        <PageBackground background={this.props.pageBackground} />
         <Location city={this.props.location.city}
           editMode={this.props.editMode}
           onLocationSelect={this.props.changeLocation}
