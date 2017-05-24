@@ -19,9 +19,11 @@ class Main extends Component {
         <PageBackground background={this.props.pageBackground} />
         <Location city={this.props.location.city}
           editMode={this.props.editMode}
-          onLocationSelect={this.props.changeLocation}
+          onLocationSelect={this.props.selectLocation}
           onChangeLocationClick={this.props.switchEditMode.bind(null, true)}
-          onInputBlur={this.props.switchEditMode.bind(null, false)} />
+          onBackLocationClick={this.props.detectLocation}
+          onInputBlur={this.props.switchEditMode.bind(null, false)}
+          isChanged={this.props.locationIsChanged} />
         <div className={styles.split}>
          <WeatherIcon code={this.props.weatherIcon} class={styles.icon}/>
         	<span className={styles.date}>Today</span>

@@ -3,14 +3,6 @@
 	padding: 10px 0 0;
 }
 
-.container svg {
-	position: relative;
-	top: 4px;
-	right: 2px;
-	display: inline-block;
-	width: 18px;
-}
-
 .button {
 	display: inline-block;
 	border: none;

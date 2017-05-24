@@ -2,3 +2,19 @@
 	min-height: 90px;
 }
 
+.backIcon {
+	position: relative;
+	top: 3px;
+	right: 5px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+}
+
+.locationIcon {
+	position: relative;
+	top: 4px;
+	right: 2px;
+	display: inline-block;
+	width: 18px;
+}

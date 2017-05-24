@@ -10,8 +10,18 @@ const mainReducer = (state , action) => {
           city: action.city,
           latitude: action.latitude,
           longitude: action.longitude
-        }
+        },
+        locationIsChanged: false
       })
+    case 'CHANGE_LOCATION':
+      return Object.assign({}, state, {
+        location: {
+          city: action.city,
+          latitude: action.latitude,
+          longitude: action.longitude
+        },
+        locationIsChanged: true
+      })  
     case 'RECEIVE_WEATHER':
   	  return Object.assign({}, state, {
         temperature: action.temperature,

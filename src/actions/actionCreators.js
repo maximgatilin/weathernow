@@ -20,6 +20,18 @@ export function receiveLocation(location) {
 	}
 }
 
+export function selectLocation(location) {
+	return function(dispatch) {
+		dispatch(changeLocation({
+			city: location.vicinity,
+    	latitude: location.geometry.location.lat(),
+    	longitude: location.geometry.location.lng()
+		}));
+
+		dispatch(getWeather());
+	}
+}
+
 export function detectLocation() {
 	return function(dispatch) {
 		dispatch(requestLocation());
@@ -38,14 +50,11 @@ export function detectLocation() {
 }
 
 export function changeLocation(location) {
-	return function(dispatch) {
-		dispatch(receiveLocation({
-			city: location.vicinity ,
-    	latitude: location.geometry.location.lat(),
-    	longitude: location.geometry.location.lng()
-		}));
-
-		dispatch(getWeather());
+	return {
+		type: 'CHANGE_LOCATION',
+		city: location.city,
+		latitude: location.latitude,
+		longitude: location.longitude
 	}
 }
 // Location###
