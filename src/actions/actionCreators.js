@@ -80,7 +80,7 @@ export function getWeather() {
 }
 
 function getBackgroundByKey(weather) {
-	const sun = 'linear-gradient(to top, #ff8008, #ffc837)';
+	const sun = 'linear-gradient(to top, #e85a8a, #faae56)';
 	const moon = 'linear-gradient(to top, #141e30, #243b55)';
 	const clouds = 'linear-gradient(to top, #757f9a, #d7dde8)';
 	const nightClouds = 'linear-gradient(to top, #37393d, #101b30)';
