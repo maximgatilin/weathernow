@@ -41,11 +41,12 @@ export function detectLocation() {
         'Accept-Language':'en'
       }
     })
-    .then(response => response.json(), error => {dispatch(loadingFailed())})
+    .then(response => response.json())
     .then(location => {
     	dispatch(receiveLocation(location))
     	dispatch(getWeather())
     })
+    .catch(error => dispatch( loadingFailed() ));
 	}
 }
 
@@ -83,8 +84,11 @@ export function getWeather() {
 		const { latitude, longitude } = getState().location;
 
     return fetchJsonp(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}?units=si&exclude=minutely,hourly,daily,alerts,flags`)
-    .then(response => response.json(), error => {dispatch(loadingFailed())})
-    .then(weather => dispatch(receiveWeather(weather)));
+    .then(response => response.json())
+    .then(weather => {
+    	dispatch(receiveWeather(weather));
+    })
+    .catch(error => dispatch( loadingFailed() ));
 	};
 }
 
