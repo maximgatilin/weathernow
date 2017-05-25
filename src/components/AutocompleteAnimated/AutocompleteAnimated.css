@@ -13,3 +13,9 @@
 .input:active, .input:focus {
 	outline: none;
 }
+
+@media (max-width: 680px) {
+	.input {
+		width: 90%;
+	}
+}
