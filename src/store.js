@@ -1,8 +1,6 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 import mainReducer from './reducers/main';
-const loggerMiddleware = createLogger();
 
 const initialState = {
   location: {
@@ -20,14 +18,15 @@ const initialState = {
   locationIsChanged: false
 };
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-	mainReducer,
+  mainReducer,
   initialState,
-  applyMiddleware(
-    thunkMiddleware,
-    loggerMiddleware 
-  ),
-  // enables redux devtools
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+  composeEnhancers(
+    applyMiddleware( 
+      thunkMiddleware
+    )
+  )
+);
 
 export default store;
