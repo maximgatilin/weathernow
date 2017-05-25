@@ -19,7 +19,7 @@ class Main extends Component {
 		return (
 			<div className={styles.container}>
 				{ this.props.loading && <Loader /> }
-				{ this.props.loadingError && <Error>Sorry, an error occurred. Try to reload page</Error> }
+				{ this.props.loadingError && <Error>Sorry, an error occurred. Try to disable blocker extentions and reload the page</Error> }
 				<PageBackground background={this.props.pageBackground} />
 				<Location city={this.props.location.city}
 					editMode={this.props.editMode}
