@@ -12,8 +12,8 @@ import BackIcon from './../icons/BackIcon';
 
 class Location extends Component {
   render() {
-  	const { editMode, onInputBlur, onLocationSelect, city, onChangeLocationClick, onBackLocationClick } = this.props;
-    
+  	const { editMode, onInputBlur, onLocationSelect, city, onChangeLocationClick, onBackLocationClick, locationIsChanged } = this.props;
+
      if (editMode) {
       return (
       	<div className={styles.block}>
@@ -29,13 +29,15 @@ class Location extends Component {
             <City key="city">{city}</City>
             <SimpleButton key="changeLocation"
               clickHandler={onChangeLocationClick}
+              animated={true}
               animationType="toTop"
               animationDelay={0.1}>
                 <LocationIcon styles={styles.locationIcon}/>
                 Change location
             </SimpleButton>
-            { this.props.isChanged && <SimpleButton key="backLocation"
+            { locationIsChanged && <SimpleButton key="backLocation"
               clickHandler={onBackLocationClick}
+              animated={true}
               animationType="toTop"
               animationDelay={0.2}
               animateWhenMounted={true}>
@@ -55,7 +57,8 @@ Location.propTypes = {
   onInputBlur: PropTypes.func,
   onLocationSelect: PropTypes.func,
   onChangeLocationClick: PropTypes.func,
-  onBackLocationClick: PropTypes.func
+  onBackLocationClick: PropTypes.func,
+  locationIsChanged: PropTypes.bool
 };
 
 export default Location;

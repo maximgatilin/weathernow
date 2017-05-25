@@ -22,6 +22,7 @@ export function receiveLocation(location) {
 
 export function selectLocation(location) {
 	return function(dispatch) {
+		dispatch(switchEditMode(false));
 		dispatch(changeLocation({
 			city: location.vicinity,
     	latitude: location.geometry.location.lat(),

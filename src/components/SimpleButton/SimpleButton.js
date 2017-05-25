@@ -13,12 +13,8 @@ class SimpleButton extends Component {
     )
   }
 
-  componentWillAppear() {
-    this.animate();
-  }
-
   componentDidMount() {
-    if (this.props.animateWhenMounted) {
+    if (this.props.animated) {
       this.animate();
     }
   }
@@ -39,6 +35,7 @@ class SimpleButton extends Component {
 
 SimpleButton.propTypes = {
 	clickHandler: PropTypes.func,
+  animated: PropTypes.bool,
   animationType: PropTypes.string,
   animationDelay: PropTypes.number,
   animateWhenMounted: PropTypes.bool

@@ -23,7 +23,7 @@ class Main extends Component {
           onChangeLocationClick={this.props.switchEditMode.bind(null, true)}
           onBackLocationClick={this.props.detectLocation}
           onInputBlur={this.props.switchEditMode.bind(null, false)}
-          isChanged={this.props.locationIsChanged} />
+          locationIsChanged={this.props.locationIsChanged} />
         <div className={styles.split}>
          <WeatherIcon code={this.props.weatherIcon} class={styles.icon}/>
         	<span className={styles.date}>Today</span>
