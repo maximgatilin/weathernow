@@ -4,12 +4,12 @@ import logo from './../../images/logo.svg';
 
 class Header extends Component {
 	render() {
-    return (
-      <header className={styles.block}>
-        <img src={logo} alt="logo" width="200"/>
-      </header>
-    )
-  }
+		return (
+			<header className={styles.block}>
+				<img src={logo} alt="logo" width="200"/>
+			</header>
+		)
+	}
 }
 
 export default Header;

@@ -1,29 +1,29 @@
 :root {
-  /*main colors*/
-  --text-color: #fff;
-  /*main colors*/
-  --offset: 15px;
+	/*main colors*/
+	--text-color: #fff;
+	/*main colors*/
+	--offset: 15px;
 }
 
 @import url('https://fonts.googleapis.com/css?family=Raleway:400');
 
 body {
-  font-family: 'Raleway', sans-serif;
-  color: var(--text-color);
-  background: #fff;
+	font-family: 'Raleway', sans-serif;
+	color: var(--text-color);
+	background: #fff;
 }
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  min-height: 100vh;
-  width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100%;
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }

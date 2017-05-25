@@ -25,8 +25,8 @@ export function selectLocation(location) {
 		dispatch(switchEditMode(false));
 		dispatch(changeLocation({
 			city: location.vicinity,
-    	latitude: location.geometry.location.lat(),
-    	longitude: location.geometry.location.lng()
+			latitude: location.geometry.location.lat(),
+			longitude: location.geometry.location.lng()
 		}));
 
 		dispatch(getWeather());
@@ -38,16 +38,16 @@ export function detectLocation() {
 		dispatch(requestLocation());
 
 		return fetch(locationReqUrl, {
-      headers: {
-        'Accept-Language':'en'
-      }
-    })
-    .then(response => response.json())
-    .then(location => {
-    	dispatch(receiveLocation(location))
-    	dispatch(getWeather())
-    })
-    .catch(error => dispatch( loadingFailed() ));
+			headers: {
+				'Accept-Language':'en'
+			}
+		})
+		.then(response => response.json())
+		.then(location => {
+			dispatch(receiveLocation(location))
+			dispatch(getWeather())
+		})
+		.catch(error => dispatch( loadingFailed() ));
 	}
 }
 
@@ -84,12 +84,12 @@ export function getWeather() {
 
 		const { latitude, longitude } = getState().location;
 
-    return fetchJsonp(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}?units=si&exclude=minutely,hourly,daily,alerts,flags`)
-    .then(response => response.json())
-    .then(weather => {
-    	dispatch(receiveWeather(weather));
-    })
-    .catch(error => dispatch( loadingFailed() ));
+		return fetchJsonp(`${weatherApiUrl}/${weatherApiId}/${latitude},${longitude}?units=si&exclude=minutely,hourly,daily,alerts,flags`)
+		.then(response => response.json())
+		.then(weather => {
+			dispatch(receiveWeather(weather));
+		})
+		.catch(error => dispatch( loadingFailed() ));
 	};
 }
 
@@ -101,21 +101,21 @@ function getBackgroundByKey(weather) {
 	const lightClouds = 'linear-gradient(to top, #4ca1af, #c4e0e5)';
 	const snow = 'linear-gradient(to top, #085078, #85d8ce)';
 	const rain = 'linear-gradient(to top, #2c3e50, #bdc3c7)';
-  const clear = 'linear-gradient(to top, #2f80ed, #56ccf2)';
+	const clear = 'linear-gradient(to top, #2f80ed, #56ccf2)';
 
-  const backgrounds = {
+	const backgrounds = {
 		"clear-day": weather.currently.temperature > 15 ? sun : clear,
 		"clear-night": moon,
-    "cloudy": clouds,
-    "partly-cloudy-day": clouds,
-    "partly-cloudy-night": nightClouds,
-    "rain": rain,
-    "snow": snow,
-    "fog": nightClouds,
-    "wind": lightClouds
-  };
+		"cloudy": clouds,
+		"partly-cloudy-day": clouds,
+		"partly-cloudy-night": nightClouds,
+		"rain": rain,
+		"snow": snow,
+		"fog": nightClouds,
+		"wind": lightClouds
+	};
 
-  return backgrounds[weather.currently.icon];
+	return backgrounds[weather.currently.icon];
 }
 // Weather###
 

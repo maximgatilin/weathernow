@@ -5,18 +5,18 @@ import { TweenMax } from 'gsap';
 import styles from './PageBackground.css';
 
 class PageBackground extends Component {
-  componentWillReceiveProps(newProps) {
-    if (this.props.background !== newProps.background) {
-      let element = this.element;
-      TweenMax.fromTo(element, 0.5, {css: {backgroundImage: this.props.background }}, {css: {backgroundImage: newProps.background } });
-    }
-  }
+	componentWillReceiveProps(newProps) {
+		if (this.props.background !== newProps.background) {
+			let element = this.element;
+			TweenMax.fromTo(element, 0.5, {css: {backgroundImage: this.props.background }}, {css: {backgroundImage: newProps.background } });
+		}
+	}
 
-  render() {
-    return (
-      <span className={styles.pageBackground} ref={c => this.element = c}></span>
-    )
-  }
+	render() {
+		return (
+			<span className={styles.pageBackground} ref={c => this.element = c}></span>
+		)
+	}
 }
 
 PageBackground.propTypes = {

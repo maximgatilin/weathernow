@@ -6,11 +6,11 @@ import loaderImg from './../../images/loader.svg';
 class Loader extends Component {
 	render() {
 			return (
-	    	<div className={styles.overlay}>
-	    		<img src={loaderImg} alt="loader"/>
-	    	</div>
-    	)
-  }
+				<div className={styles.overlay}>
+					<img src={loaderImg} alt="loader"/>
+				</div>
+			)
+	}
 }
 
 export default Loader;
