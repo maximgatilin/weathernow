@@ -22,14 +22,16 @@ export function receiveLocation(location) {
 
 export function selectLocation(location) {
 	return function(dispatch) {
-		dispatch(switchEditMode(false));
-		dispatch(changeLocation({
-			city: location.vicinity,
-			latitude: location.geometry.location.lat(),
-			longitude: location.geometry.location.lng()
-		}));
+		if (location.geometry) {
+			dispatch(switchEditMode(false));
+			dispatch(changeLocation({
+				city: location.vicinity,
+				latitude: location.geometry.location.lat(),
+				longitude: location.geometry.location.lng()
+			}));
 
-		dispatch(getWeather());
+			dispatch(getWeather());
+		}
 	}
 }
 
