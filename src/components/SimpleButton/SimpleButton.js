@@ -5,18 +5,18 @@ import { TweenLite, Elastic } from 'gsap';
 import styles from './SimpleButton.css';
 
 class SimpleButton extends Component {
-  render() {
-    return (
-    	<div className={styles.container} ref={c => this.container = c}>
-    		<button className={styles.button} onClick={this.props.clickHandler}>{this.props.children}</button>
-    	</div>
-    )
-  }
-
   componentDidMount() {
     if (this.props.animated) {
       this.animate();
     }
+  }
+
+  render() {
+    return (
+      <div className={styles.container} ref={c => this.container = c}>
+        <button className={styles.button} onClick={this.props.clickHandler}>{this.props.children}</button>
+      </div>
+    )
   }
 
   animate() {

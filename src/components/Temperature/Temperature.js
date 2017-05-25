@@ -4,15 +4,9 @@ import PropTypes from 'prop-types';
 import styles from './Temperature.css';
 
 class Temperature extends Component {
-	 constructor(props) {
+	constructor(props) {
     super(props);
     this.state = {value: this.props.value, animationInterval: 0};
-  }
-
-  render() {
-    return (
-    	<div className={styles.value}>{this.state.value}</div>
-    )
   }
 
   componentWillReceiveProps (newProps) {
@@ -20,6 +14,12 @@ class Temperature extends Component {
   		this.setTemp(newProps.value);
   		this.setState({animationInterval: 35});
   	}
+  }
+
+  render() {
+    return (
+      <div className={styles.value}>{this.state.value}</div>
+    )
   }
 
   setTemp(temp) {

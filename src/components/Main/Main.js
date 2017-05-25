@@ -11,7 +11,11 @@ import Loader from './../Loader/Loader';
 import Error from './../Error/Error';
 
 class Main extends Component {
-	render() {
+	componentDidMount() {
+    this.props.detectLocation();
+  }
+
+  render() {
     return (
       <div className={styles.container}>
         { this.props.loading && <Loader /> }
@@ -26,16 +30,12 @@ class Main extends Component {
           locationIsChanged={this.props.locationIsChanged} />
         <div className={styles.split}>
          <WeatherIcon code={this.props.weatherIcon} class={styles.icon}/>
-        	<span className={styles.date}>Today</span>
+          <span className={styles.date}>Today</span>
         </div>
         <Temperature value={this.props.temperature}/>
         <div className={styles.description}>{this.props.weatherDescription}</div>
       </div>
     )
-  }
-
-	componentDidMount() {
-    this.props.detectLocation();
   }
 }
 
