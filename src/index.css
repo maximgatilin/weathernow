@@ -1,1 +1,31 @@
+:root {
+	/*main colors*/
+	--text-color: #fff;
+	/*main colors*/
+	--offset: 15px;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400');
+
+html {
+	height: 100%;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	color: var(--text-color);
+	background: #fff;
+	height: 100%;
+}
+
+:global(#root) {
+	height: 100%;
+}
 
