@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import SunIcon from './../icons/SunIcon';
@@ -11,17 +11,14 @@ import SnowIcon from './../icons/SnowIcon';
 import MistIcon from './../icons/MistIcon';
 import WindIcon from './../icons/WindIcon';
 
-
 import styles from './WeatherIcon.css';
 
-class WeatherIcon extends Component {
-	render() {
-		return (
-			<div className={styles.icon}>{this.getIcon(this.props.code)}</div>
-		)
-	}
+const propTypes = {
+	code: PropTypes.string.isRequired
+};
 
-	getIcon(code) {
+export default function WeatherIcon({code}) {
+	const getIcon = (code) => {
 		const icons = {
 			"clear-day": <SunIcon />,
 			"clear-night": <MoonIcon />,
@@ -35,10 +32,10 @@ class WeatherIcon extends Component {
 		};
 		return icons[code];
 	}
+
+	return (
+		<div className={styles.icon}>{getIcon(code)}</div>
+	)
 }
 
-WeatherIcon.propTypes = {
-	code: PropTypes.string.isRequired
-};
-
-export default WeatherIcon;
+WeatherIcon.propTypes = propTypes;

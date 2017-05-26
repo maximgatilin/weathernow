@@ -7,7 +7,7 @@ import styles from './AutocompleteAnimated.css';
 
 class AutocompleteAnimated extends Component {
 	componentWillAppear() {
-	const el = this.container;
+		const el = this.container;
 		TweenLite.fromTo(el, 0.2, { opacity: 0.2, y:-10 }, { opacity: 1, y: 0, ease: Power1.easeInOut });
 	}
 
