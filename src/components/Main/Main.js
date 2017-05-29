@@ -16,24 +16,25 @@ class Main extends Component {
 	}
 
 	render() {
+		const { page, weather, location } = this.props;
 		return (
 			<div className={styles.container}>
-				{ this.props.loading && <Loader /> }
-				{ this.props.loadingError && <Error>Sorry, an error occurred. Try to disable blocker extentions and reload the page</Error> }
-				<PageBackground background={this.props.pageBackground} />
-				<Location city={this.props.location.city}
-					editMode={this.props.editMode}
+				{ page.loading && <Loader /> }
+				{ page.loadingError && <Error>Sorry, an error occurred. Try to disable blocker extentions and reload the page</Error> }
+				<PageBackground background={page.background} />
+				<Location city={location.city}
+					editMode={page.editMode}
 					onLocationSelect={this.props.selectLocation}
 					onChangeLocationClick={this.props.switchEditMode.bind(null, true)}
 					onBackLocationClick={this.props.detectLocation}
 					onInputBlur={this.props.switchEditMode.bind(null, false)}
-					locationIsChanged={this.props.locationIsChanged} />
+					locationIsChanged={location.isChanged} />
 				<div className={styles.split}>
-					<WeatherIcon code={this.props.weatherIcon} class={styles.icon}/>
+					<WeatherIcon code={weather.icon} class={styles.icon}/>
 					<span className={styles.date}>Today</span>
 				</div>
-				<Temperature value={this.props.temperature}/>
-				<div className={styles.description}>{this.props.weatherDescription}</div>
+				<Temperature value={weather.temperature}/>
+				<div className={styles.description}>{weather.description}</div>
 				</div>
 		)
 	}
