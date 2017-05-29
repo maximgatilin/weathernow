@@ -1,21 +1,21 @@
 const initialState = {
 	editMode: false,
 	background: 'linear-gradient(to top, #3498db, #3498db)',
-	loading: false,
-	loadingError: false,
+	fetching: false,
+	fetchingError: false,
 	locationIsChanged: false
 };
 
 export default function page(state = initialState, action) {
 	switch (action.type) {
 		case 'REQUEST_LOCATION':
-			return {...state, loading: true}
+			return {...state, fetching: true}
 		case 'RECEIVE_WEATHER':
 			return {
 				...state,
 				background: action.background,
-				loading: false,
-				loadingError: false
+				fetching: false,
+				fetchingError: false
 			}
 		case 'SWITCH_EDIT_MODE':
 			return {
@@ -25,9 +25,9 @@ export default function page(state = initialState, action) {
 		case 'LOADING_FAILED':
 			return {
 				...state,
-				loading: false,
-				loadingError: true
-			}	
+				fetching: false,
+				fetchingError: true
+			}
 		default:
 			return state;
 	}

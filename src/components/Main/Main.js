@@ -19,8 +19,8 @@ class Main extends Component {
 		const { page, weather, location } = this.props;
 		return (
 			<div className={styles.container}>
-				{ page.loading && <Loader /> }
-				{ page.loadingError && <Error>Sorry, an error occurred. Try to disable blocker extentions and reload the page</Error> }
+				{ page.fetching && <Loader /> }
+				{ page.fetchingError && <Error>Sorry, an error occurred. Try to disable blocker extentions and reload the page</Error> }
 				<PageBackground background={page.background} />
 				<Location city={location.city}
 					editMode={page.editMode}
